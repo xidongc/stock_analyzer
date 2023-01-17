@@ -1,0 +1,9 @@
+pyalgotrade~=0.20
+akshare~=1.8.56
+pandas~=1.4.4
+mplfinance~=0.12.9b7
+backtrader~=1.9.76.123
+numpy~=1.23.1
+statsmodels~=0.13.2
+matplotlib~=3.6.3
+iteround~=1.0.4
