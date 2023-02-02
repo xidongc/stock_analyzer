@@ -24,9 +24,6 @@ class CrossOverStrategy(bt.Strategy):
         self.sma_long = bt.indicators.MovingAverageSimple(self.data, period=self.params.long_period)
         self.gold_signal = self.sma_short > self.sma_long
         self.dead_signal = self.sma_long > self.sma_short
-        rsi = bt.indicators.RSI(self.datas[0])
-        bt.indicators.WeightedMovingAverage(self.datas[0], period=25,
-                                            subplot=True)
 
     def notify_order(self, order):
         if order.status in [order.Submitted, order.Accepted]:

@@ -15,14 +15,12 @@ class MyStrategy(bt.Strategy):
         print('%s, %s' % (dt.isoformat(), txt))
 
     def __init__(self):
-        # indicator
-        self.dataclose = self.datas[0].close
-        # To keep track of pending orders
-        self.order = None
-        self.sma = bt.indicators.MovingAverage
+        self.sma_short = bt.indicators.MovingAverageSimple(self.data, period=self.params.short_period)
+        self.sma_short_mid = bt.indicators.MovingAverageSimple(self.data, period=self.params.short_mid_period)
+        self.sma_mid = bt.indicators.MovingAverageSimple(self.data, period=self.params.mid_period)
+        self.sma_long = bt.indicators.MovingAverageSimple(self.data, period=self.params.long_period)
 
-    def start(self):
-        print("cerebro starts kicking...")
+        self.order = None
 
     def notify_order(self, order):
         if order.status in [order.Submitted, order.Accepted]:

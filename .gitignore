@@ -1,3 +1,6 @@
 .idea
 tmp/
 report/
+__pycache__
+results/
+.ipynb_checkpoints/
